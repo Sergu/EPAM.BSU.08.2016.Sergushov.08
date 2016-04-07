@@ -170,6 +170,78 @@ namespace Task2
         {
             return GetElementsAmount(this);
         }
+        public IEnumerable<T> Preorder()
+        {
+            return RecursivePreorder(this);
+        }
+        public IEnumerable<T> Inorder()
+        {
+            return RecursiveInorder(this);
+        }
+        public IEnumerable<T> PostOrder()
+        {
+            return RecursuvePostOrder(this);
+        }
+        private IEnumerable<T> RecursuvePostOrder(BinaryTree<T> item)
+        {
+            if (item != null)
+            {
+                foreach (T data in RecursivePreorder(item.Left))
+                {
+                    yield return data;
+                }
+                foreach (T data in RecursivePreorder(item.Right))
+                {
+                    yield return data;
+                }
+                yield return item.Data;
+            }
+        }
+        private IEnumerable<T> RecursiveInorder(BinaryTree<T> item)
+        {
+            if (item != null)
+            {
+                foreach (T data in RecursivePreorder(item.Left))
+                {
+                    yield return data;
+                }
+                yield return item.Data;
+                foreach (T data in RecursivePreorder(item.Right))
+                {
+                    yield return data;
+                }
+            }
+        }
+        private IEnumerable<T> RecursivePreorder(BinaryTree<T> item)
+        {
+            if (item != null)
+            {
+                yield return item.Data;
+                foreach (T data in RecursivePreorder(item.Left))
+                {
+                    yield return data;
+                }
+                foreach (T data in RecursivePreorder(item.Right))
+                {
+                    yield return data;
+                }
+            }
+            //yield return item.Data;
+            //if (item.Left != null)
+            //{
+            //     foreach(T data in RecursivePreorder(item.Left))
+            //     {
+            //         yield return data;
+            //     }
+            //}
+            //if (item.Right != null)
+            //{
+            //    foreach (T data in RecursivePreorder(item.Right))
+            //    {
+            //        yield return data;
+            //    }
+            //}
+        }
         private long GetElementsAmount(BinaryTree<T> node)
         {
             long count = 1;
