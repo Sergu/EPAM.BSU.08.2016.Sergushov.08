@@ -39,8 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalcMatrixSumVisitor.cs" />
+    <Compile Include="DiagonalMatrix.cs" />
+    <Compile Include="Exceptions\DiagonalMatrixException.cs" />
+    <Compile Include="Exceptions\SquareMatrixException.cs" />
+    <Compile Include="Exceptions\SymmetricMatrixException.cs" />
+    <Compile Include="Factory\SquareMatrixFactory.cs" />
+    <Compile Include="IMatrix.cs" />
+    <Compile Include="IMatrixVisitor.cs" />
+    <Compile Include="MatrixExtension.cs" />
+    <Compile Include="Rectangle.cs" />
     <Compile Include="SquareMatrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Exceptions\SumMatrixException.cs" />
+    <Compile Include="SymmetricMatrix.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
